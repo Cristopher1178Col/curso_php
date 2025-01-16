@@ -97,8 +97,18 @@ multiplicacion();
 
 echo "<br/>";
 
-// variables locales 
+// VARIABLES LOCALES
+//-------------------------------------------------------------//
+//Ejemplo de variable global 
 
+function varNom(){
+    
+    $nombre = "Cristopher";    // Las variables locales tiene un ambito local y solo pueden ser usadas dentro de la funcion
+    echo $nombre; 
+    echo "<br/>";
+}
+
+///-------------------------------------------------------------//
 
 $contacto = "Cristopher";
 
@@ -115,7 +125,17 @@ echo $contacto;
 
 
 //variables globales 
+//-------------------------------------------------------------//
+//Ejemplo de variable global 
+$nombre = "Cristopher";
+function mostrarNombre(){
+   // echo "tu nombre es: $nombre";// importante ¡¡¡ si la variable esta dentro de la funcion arrojara error !!!! se puede descomentar para probar
+}
 
+mostrarNombre();
+echo "tu nombre es $nombre";
+
+///-------------------------------------------------------------//
 global $mensaje;
 
 $mensaje =  "Saludo";
