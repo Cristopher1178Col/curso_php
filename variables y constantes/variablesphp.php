@@ -99,7 +99,7 @@ echo "<br/>";
 
 // VARIABLES LOCALES
 //-------------------------------------------------------------//
-//Ejemplo de variable global 
+//Ejemplo de variable local 
 
 function varNom(){
     
@@ -134,32 +134,43 @@ function mostrarNombre(){
 
 mostrarNombre();
 echo "tu nombre es $nombre";
+echo "<br/>";
 
 ///-------------------------------------------------------------//
-global $mensaje;
 
-$mensaje =  "Saludo";
+$x =10;
+$y = 20;
 
-function mostrarcontacto3(){
-
-    global $mensaje;
-    echo $mensaje;
-
+function suma(){      // las variables globales se pueden usar dentro de una funcion palabra clave antes de la variable ¡¡¡GLOBAL¡¡¡
+   
+    global $x, $y;
+    $y= $x + $y;
 }
 
-echo"<br/>";
-mostrarcontacto3();
-echo"<br/>";
-echo $mensaje;
+suma();
+echo $y;
+echo "<br/>";
+
+
+// TAMBIEN SE PUEDE ESCRIBIR ASI 
+$x = 5;
+$y = 10;
+
+function myTest() {
+  $GLOBALS['y'] = $GLOBALS['x'] + $GLOBALS['y'];
+}
+
+myTest();
+echo $y; // Resultado 15
 
 
 // variables estaticas
 
 function contador(){
 
-    static $num=1;
+    static $num=1;  // las variables estaticas se utilizan en caso de que necesitemos las variables locales pero que no se reinicien cada vez que se llame la funcion
     echo $num;
-    $num = $num + 1;
+    $num = $num + 1;   // se incrementa el valor de la variable  NOTA: la variable sigue siendo local para la funcion
 }
 
 echo"<br/>";
@@ -167,7 +178,7 @@ echo contador();
 echo"<br/>";
 echo contador();
 echo"<br/>";
-echo contador();
+echo contador();      
 echo"<br/>";
 echo contador();
 echo"<br/>";
