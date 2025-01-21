@@ -4,3 +4,5 @@ define ("carros", [
     "Mercedes",
     "Audi"
 ]);
+
+echo carros[0];
